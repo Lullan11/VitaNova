@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita Nova | Hogar para Adultos Mayores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#inicio" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="logo-text">
+                        <img src="img/logo.jpg" alt="Logo VitaNova">
+                        <p>Hogar para Adultos Mayores</p>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="tel:+5551234567" class="phone-number">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(555) 123-4567</span>
+                    </a>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-shape"></div>
+            <div class="hero-bg-shape"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>VitaNova: Un Nuevo Comienzo Lleno de Cuidado y Dignidad</h2>
+                <p>En Vita Nova ofrecemos un ambiente cálido y seguro donde cada adulto mayor recibe atención
+                    personalizada, respeto y oportunidades para disfrutar de una vida plena y significativa.</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn pulse">Ver Servicios <i class="fas fa-arrow-down"></i></a>
+                    <a href="#contacto" class="btn btn-secondary">Contactar Ahora <i class="fas fa-comment-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre VitaNova</h2>
+                <p>Un hogar donde la experiencia, el respeto y la dedicación se unen para brindar la mejor calidad de
+                    vida</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra Filosofía de Cuidado</h3>
+                    <p>En Vita Nova entendemos que cada persona es única, con su propia historia, preferencias y
+                        necesidades. Por eso, nuestro enfoque se centra en el respeto a la individualidad y la promoción
+                        de la autonomía en un ambiente seguro y afectuoso.</p>
+                    <p>Nuestro equipo está compuesto por profesionales capacitados en geriatría, enfermería, nutrición y
+                        terapia, quienes trabajan en conjunto para garantizar el bienestar integral de cada residente.
+                    </p>
+
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">1+</div>
+                            <div class="stat-text">Años de Experiencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-text">Residentes Felices</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">Atención Personalizada</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Satisfacción Garantizada</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-main floating">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                            alt="Equipo de Vita Nova">
+                    </div>
+                    <div class="visual-secondary floating" style="animation-delay: 2.5s;">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1758&q=80"
+                            alt="Actividades en Vita Nova">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Mejorados -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Descubre nuestra gama completa de servicios diseñados para el máximo confort y bienestar</p>
+            </div>
+
+            <!-- Filtro de servicios -->
+            <div class="services-filter">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> Todos
+                </button>
+                <button class="filter-btn" data-filter="alojamiento">
+                    <i class="fas fa-home"></i> Alojamiento
+                </button>
+                <button class="filter-btn green" data-filter="salud">
+                    <i class="fas fa-heartbeat"></i> Salud
+                </button>
+                <button class="filter-btn accent" data-filter="bienestar">
+                    <i class="fas fa-spa"></i> Bienestar
+                </button>
+            </div>
+
+            <!-- Grid de servicios moderno -->
+            <div class="services-grid">
+                <!-- Servicio 1 - Hospedaje Permanente -->
+                <div class="service-card accent" data-category="alojamiento">
+                    <div class="service-card-header">
+                        <div class="service-icon-container accent">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Hospedaje Permanente</h3>
+                        <p>Alojamiento completo y seguro</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Ofrecemos un hogar permanente con habitaciones privadas y semiprivadas, diseñadas para
+                            maximizar la comodidad, seguridad y autonomía de nuestros residentes.</p>
+                        <ul class="service-features">
+                            <li>Habitaciones con baño adaptado</li>
+                            <li>Mobiliario ergonómico y seguro</li>
+                            <li>Áreas comunes amplias y confortables</li>
+                            <li>Espacios al aire libre y jardines</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Servicio 2 - Guardería por Días -->
+                <div class="service-card green" data-category="alojamiento">
+                    <div class="service-card-header">
+                        <div class="service-icon-container green">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <h3>Guardería por Días</h3>
+                        <p>Cuidado temporal flexible</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Servicio de guardería por días, ideal para familias que necesitan apoyo temporal o desean que
+                            su ser querido disfrute de actividades sociales y cuidado profesional durante el día.</p>
+                        <ul class="service-features">
+                            <li>Horarios flexibles (medio día o día completo)</li>
+                            <li>Inclusión en todas las actividades</li>
+                            <li>Alimentación balanceada incluida</li>
+                            <li>Supervisión profesional constante</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Servicio 3 - Alimentación Balanceada -->
+                <div class="service-card" data-category="bienestar">
+                    <div class="service-card-header">
+                        <div class="service-icon-container">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Alimentación Balanceada</h3>
+                        <p>Nutrición especializada y personalizada</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Dietas equilibradas supervisadas por nutricionistas, adaptadas a necesidades médicas
+                            específicas, preferencias personales y condiciones especiales de cada residente.</p>
+                        <ul class="service-features">
+                            <li>Planes nutricionales individualizados</li>
+                            <li>Chef especializado en alimentación geriátrica</li>
+                            <li>Adaptación a dietas médicas específicas</li>
+                            <li>Comidas culturalmente apropiadas</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Servicio 4 - Enfermería 24 Horas -->
+                <div class="service-card" data-category="salud">
+                    <div class="service-card-header">
+                        <div class="service-icon-container">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <h3>Enfermería 24 Horas</h3>
+                        <p>Atención médica permanente</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Contamos con personal de enfermería especializado disponible las 24 horas para atención
+                            inmediata, administración de medicamentos, control de signos vitales y cuidados específicos.
+                        </p>
+                        <ul class="service-features">
+                            <li>Enfermeras especializadas 24/7</li>
+                            <li>Administración de medicamentos</li>
+                            <li>Control de signos vitales diario</li>
+                            <li>Atención en casos de emergencia</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Servicio 5 - AME -->
+                <div class="service-card green" data-category="salud">
+                    <div class="service-card-header">
+                        <div class="service-icon-container green">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3>AME (Atención Médica Especial)</h3>
+                        <p>Cuidado médico integral</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Servicio de Atención Médica Especial que incluye visitas regulares de geriatras, coordinación
+                            con especialistas según necesidades y seguimiento médico personalizado para cada residente.
+                        </p>
+                        <ul class="service-features">
+                            <li>Visitas periódicas de geriatra</li>
+                            <li>Coordinación con especialistas</li>
+                            <li>Revisión médica integral mensual</li>
+                            <li>Seguimiento de condiciones crónicas</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Servicio 6 - Arreglo de Uñas -->
+                <div class="service-card accent" data-category="bienestar">
+                    <div class="service-card-header">
+                        <div class="service-icon-container accent">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Cuidado Personal Integral</h3>
+                        <p>Bienestar estético y físico</p>
+                    </div>
+                    <div class="service-card-content">
+                        <p>Servicios completos de cuidado personal que incluyen arreglo de uñas, cuidado podológico,
+                            peluquería y otros servicios estéticos para mantener la salud y autoestima de nuestros
+                            residentes.</p>
+                        <ul class="service-features">
+                            <li>Arreglo de uñas profesional mensual</li>
+                            <li>Cuidado podológico especializado</li>
+                            <li>Servicio de peluquería incluido</li>
+                            <li>Masajes terapéuticos opcionales</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Hogar en Imágenes</h2>
+                <p>Conoce nuestras instalaciones, actividades y el día a día en Vita Nova</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                        alt="Salón Principal">
+                    <div class="gallery-overlay">
+                        <h4>Salón Principal</h4>
+                        <p>Espacio para actividades grupales y convivencia</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1758&q=80"
+                        alt="Habitación Privada">
+                    <div class="gallery-overlay">
+                        <h4>Habitación Privada</h4>
+                        <p>Confort y seguridad para cada residente</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519206591951-0d613d5f4cc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1772&q=80"
+                        alt="Jardín Terapéutico">
+                    <div class="gallery-overlay">
+                        <h4>Jardín Terapéutico</h4>
+                        <p>Espacio natural para relax y actividades al aire libre</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                        alt="Comedor">
+                    <div class="gallery-overlay">
+                        <h4>Comedor Principal</h4>
+                        <p>Ambiente acogedor para disfrutar las comidas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1820&q=80"
+                        alt="Sala de Terapia">
+                    <div class="gallery-overlay">
+                        <h4>Sala de Terapia</h4>
+                        <p>Espacio para rehabilitación y actividades físicas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                        alt="Área de Enfermería">
+                    <div class="gallery-overlay">
+                        <h4>Área de Enfermería</h4>
+                        <p>Atención médica permanente y especializada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>Estamos aquí para responder todas tus preguntas y agendar una visita guiada</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Visítanos y Conoce VitaNova</h3>
+                    <p>Te invitamos a conocer nuestras instalaciones, nuestro equipo y la cálida atmósfera que hace de
+                        Vita Nova un hogar especial para adultos mayores.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail-card">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Dirección</h4>
+                                <p>Calle del Bienestar 123<br>Colonia Tranquilidad, Ciudad Esperanza<br>CP 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-card green">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Teléfonos</h4>
+                                <p>Informes: (555) 123-4567<br>Emergencias: (555) 987-6543</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-card green">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Correo Electrónico</h4>
+                                <p>info@vitanova.com<br>visitas@vitanova.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-card">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Horarios de Visita</h4>
+                                <p>Lunes a Viernes: 9:00 AM - 7:00 PM<br>Sábados: 10:00 AM - 5:00 PM<br>Domingos: 10:00
+                                    AM - 3:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Solicita Información o una Visita</h3>
+                    <form id="formContacto">
+                        <!-- Opciones de tipo de solicitud -->
+                        <div class="form-group">
+                            <label>¿Qué deseas realizar? *</label>
+                            <div class="solicitud-opciones">
+                                <button type="button" class="opcion-btn active" data-tipo="consulta">
+                                    <i class="fas fa-info-circle"></i> Consulta de Información
+                                </button>
+                                <button type="button" class="opcion-btn green" data-tipo="visita">
+                                    <i class="fas fa-calendar-check"></i> Agendar una Visita
+                                </button>
+                            </div>
+                            <input type="hidden" id="tipoSolicitud" name="tipoSolicitud" value="consulta">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre Completo *</label>
+                                <input type="text" id="nombre" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" class="form-control" required>
+                            </div>
+                            <!-- Campo de parentesco - solo visible para visitas -->
+                            <div class="form-group parentesco-field" id="parentescoField">
+                                <label for="parentesco">Parentesco *</label>
+                                <input type="text" id="parentesco" class="form-control"
+                                    placeholder="Ej: Hijo/a, sobrino/a, etc.">
+                            </div>
+                            <!-- Para consultas, este campo estará oculto -->
+                            <div class="form-group" id="fechaField">
+                                <label for="fechaPreferida">Fecha Preferida (para visitas)</label>
+                                <input type="date" id="fechaPreferida" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Servicio de Interés</label>
+                            <select id="servicio" class="form-control">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="hospedaje">Hospedaje Permanente</option>
+                                <option value="guarderia">Guardería por Días</option>
+                                <option value="alimentacion">Alimentación Balanceada</option>
+                                <option value="enfermeria">Enfermería 24 Horas</option>
+                                <option value="ame">AME (Atención Médica Especial)</option>
+                                <option value="cuidado-personal">Cuidado Personal Integral</option>
+                                <option value="terapias">Terapias Especializadas</option>
+                                <option value="transporte">Transporte y Acompañamiento</option>
+                                <option value="varios">Varios servicios</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje o Consulta *</label>
+                            <textarea id="mensaje" class="form-control" placeholder="Cuéntanos cómo podemos ayudarte..."
+                                required rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn form-submit">Enviar Solicitud <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="footer-logo-text">
+                            <h4>VitaNova</h4>
+                        </div>
+                    </div>
+                    <p>Un espacio creado con amor y profesionalismo para el cuidado integral de adultos mayores. Donde
+                        cada día es una nueva oportunidad para vivir con dignidad, alegría y bienestar.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Sobre Nosotros</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#galeria">Galería</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Nuestros Servicios</h3>
+                    <a href="#servicios">Hospedaje Permanente</a>
+                    <a href="#servicios">Guardería por Días</a>
+                    <a href="#servicios">Alimentación Balanceada</a>
+                    <a href="#servicios">Enfermería 24 Horas</a>
+                    <a href="#servicios">AME</a>
+                    <a href="#servicios">Cuidado Personal</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle del Bienestar 123, Ciudad Esperanza</p>
+                    <p><i class="fas fa-phone-alt"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@vitanova.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Domingo: 9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 VitaNova - Hogar para Adultos Mayores. Todos los derechos reservados. | Con amor para el
+                    bienestar de nuestros adultos mayores.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para detalles del servicio -->
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- El contenido se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
