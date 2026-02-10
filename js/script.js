@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Elementos del DOM
+    // ===== ELEMENTOS DEL DOM =====
     const header = document.querySelector('header');
     const navLinks = document.querySelectorAll('.nav-links a');
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.nav-links');
     const contactForm = document.getElementById('formContacto');
     const sections = document.querySelectorAll('section');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const floatingInfo = document.getElementById('floatingInfo');
+    const floatingToggle = document.getElementById('floatingToggle');
+    const closeFloating = document.getElementById('closeFloating');
+    const whatsappBtn = document.querySelector('.whatsapp-float');
 
-    // Efecto de header al hacer scroll
+    // ===== EFECTO DE SCROLL EN HEADER =====
     window.addEventListener('scroll', function () {
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
@@ -34,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Menú móvil
+    // ===== MENÚ MÓVIL =====
     menuToggle.addEventListener('click', function () {
         mobileMenu.classList.toggle('active');
         this.querySelector('i').classList.toggle('fa-bars');
@@ -50,7 +56,60 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Funcionalidad para opciones de tipo de solicitud
+    // ===== FILTRO DE SERVICIOS =====
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Quitar clase active de todos los botones
+            filterBtns.forEach(b => b.classList.remove('active'));
+
+            // Agregar clase active al botón clickeado
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+
+            // Animación de salida de tarjetas
+            serviceCards.forEach(card => {
+                card.style.opacity = '0.5';
+                card.style.transform = 'scale(0.95)';
+
+                setTimeout(() => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }, 300);
+            });
+        });
+    });
+
+    // ===== VENTANA FLOTANTE MEJORADA =====
+    // Solo se abre cuando el usuario hace clic en el botón
+    floatingToggle.addEventListener('click', function () {
+        floatingInfo.classList.toggle('active');
+        this.style.transform = floatingInfo.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+    });
+
+    closeFloating.addEventListener('click', function () {
+        floatingInfo.classList.remove('active');
+        floatingToggle.style.transform = 'rotate(0)';
+    });
+
+    // Cerrar ventana flotante al hacer clic fuera
+    document.addEventListener('click', function (event) {
+        if (!floatingInfo.contains(event.target) &&
+            !floatingToggle.contains(event.target) &&
+            floatingInfo.classList.contains('active')) {
+            floatingInfo.classList.remove('active');
+            floatingToggle.style.transform = 'rotate(0)';
+        }
+    });
+
+    // ===== FORMULARIO DE CONTACTO =====
     const opcionBtns = document.querySelectorAll('.opcion-btn');
     const parentescoField = document.getElementById('parentescoField');
     const fechaField = document.getElementById('fechaField');
@@ -83,19 +142,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 parentescoField.classList.add('visible');
                 parentescoInput.required = true;
                 fechaField.style.display = 'block';
-                // AGREGA ESTA LÍNEA para ocultar el campo de servicio:
                 servicioField.style.display = 'none';
             } else {
                 parentescoField.classList.remove('visible');
                 parentescoInput.required = false;
                 fechaField.style.display = 'none';
-                // AGREGA ESTA LÍNEA para mostrar el campo de servicio:
                 servicioField.style.display = 'block';
             }
         });
     });
 
-    // Formulario de contacto
+    // Envío del formulario
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -150,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function () {
             parentescoField.classList.remove('visible');
             parentescoInput.required = false;
             fechaField.style.display = 'block';
-            // AGREGA ESTA LÍNEA para mostrar el campo de servicio cuando se reinicia:
             servicioField.style.display = 'block';
 
             submitBtn.innerHTML = originalText;
@@ -164,41 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1500);
     });
 
-    // FILTRO DE SERVICIOS MEJORADO
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const serviceCards = document.querySelectorAll('.service-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            // Quitar clase active de todos los botones
-            filterBtns.forEach(b => b.classList.remove('active'));
-
-            // Agregar clase active al botón clickeado
-            this.classList.add('active');
-
-            const filter = this.getAttribute('data-filter');
-
-            // Animación de salida de tarjetas
-            serviceCards.forEach(card => {
-                card.style.opacity = '0.5';
-                card.style.transform = 'scale(0.95)';
-
-                setTimeout(() => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }, 300);
-            });
-        });
-    });
-
-    // Animaciones al hacer scroll para tarjetas de servicio
+    // ===== ANIMACIONES DE TARJETAS AL SCROLL =====
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -219,67 +241,67 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(card);
     });
 
-    // Efecto hover en tarjetas de servicio mejorado
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            this.style.zIndex = '10';
-            const icon = this.querySelector('.service-icon-container');
-            if (icon) {
-                icon.style.transform = 'scale(1.15) rotate(8deg)';
-            }
-        });
+    // ===== PARTÍCULAS FLOTANTES EN HERO =====
+    const particlesContainer = document.getElementById('particles');
+    const colors = ['#3a5bb8', '#6ba43a', '#5a7de0', '#8bc34a'];
 
-        card.addEventListener('mouseleave', function () {
-            this.style.zIndex = '1';
-            const icon = this.querySelector('.service-icon-container');
-            if (icon) {
-                icon.style.transform = 'scale(1) rotate(0)';
-            }
-        });
-    });
-
-    // Modal de servicio
-    const serviceModal = document.getElementById('serviceModal');
-    const modalClose = document.getElementById('modalClose');
-    const modalContent = document.getElementById('modalContent');
-
-    // Cerrar modal con ESC
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            serviceModal.classList.remove('active');
-        }
-    });
-
-    // Cerrar modal al hacer clic fuera
-    serviceModal.addEventListener('click', function (e) {
-        if (e.target === this) {
-            this.classList.remove('active');
-        }
-    });
-
-    // Cerrar modal con botón
-    modalClose.addEventListener('click', function () {
-        serviceModal.classList.remove('active');
-    });
-});
-
-// Efecto de partículas flotantes
-document.addEventListener('DOMContentLoaded', function () {
-    const container = document.querySelector('.hero');
-    if (!container) return;
-
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 40; i++) {
         const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = Math.random() * 8 + 4 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = 'rgba(58, 91, 184, 0.1)';
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.zIndex = '1';
-        particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(particle);
+        particle.classList.add('particle');
+
+        // Tamaño aleatorio
+        const size = Math.random() * 20 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        // Posición aleatoria
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+
+        // Color aleatorio
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Animación aleatoria
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+
+        particlesContainer.appendChild(particle);
     }
+
+    // ===== EFECTO PULSO EN BOTÓN DE WHATSAPP =====
+    setInterval(() => {
+        whatsappBtn.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            whatsappBtn.style.transform = 'scale(1)';
+        }, 300);
+    }, 3000);
+
+    // ===== SCROLL SUAVE =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ===== ANIMACIÓN DE MARCADOR EN EL MAPA =====
+    const marker = document.querySelector('.marker-pin');
+    setInterval(() => {
+        marker.style.transform = 'rotate(-45deg) scale(1.1)';
+        setTimeout(() => {
+            marker.style.transform = 'rotate(-45deg) scale(1)';
+        }, 300);
+    }, 2000);
 });
