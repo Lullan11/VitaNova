@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Header Separado -->
     <header>
         <div class="container">
             <nav class="nav-container">
@@ -25,6 +26,7 @@
                     <li><a href="#inicio" class="active">Inicio</a></li>
                     <li><a href="#nosotros">Sobre Nosotros</a></li>
                     <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#videos">Videos</a></li>
                     <li><a href="#galeria">Galería</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#ubicacion">Ubicación</a></li>
@@ -42,7 +44,7 @@
         </div>
     </header>
 
-    <!-- Hero con fondo blanco y texto azul -->
+    <!-- Hero Separado con letra más pequeña -->
     <section id="inicio" class="hero">
         <div class="hero-bg">
             <div class="particles-container" id="particles"></div>
@@ -59,7 +61,7 @@
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
+    <!-- Sobre Nosotros Separado claramente -->
     <section id="nosotros" class="about">
         <div class="container">
             <div class="section-title">
@@ -86,13 +88,14 @@
                             <div class="stat-text">Satisfacción Garantizada</div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="about-visual">
                     <div class="visual-main floating">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Equipo de Vita Nova">
+                        <img src="img/parque3.jpeg" alt="Equipo de Vita Nova">
                     </div>
                     <div class="visual-secondary floating" style="animation-delay: 2.5s;">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1758&q=80" alt="Actividades en Vita Nova">
+                        <img src="img/parque4.jpeg" alt="Actividades en Vita Nova">
                     </div>
                 </div>
             </div>
@@ -106,6 +109,7 @@
                 <h2>Nuestros Servicios</h2>
                 <p>Descubre nuestra gama completa de servicios diseñados para el máximo confort y bienestar</p>
             </div>
+            
 
             <div class="services-filter">
                 <button class="filter-btn active" data-filter="all">
@@ -246,6 +250,129 @@
         </div>
     </section>
 
+    <!-- SLIDER DE VIDEOS MEJORADO PARA VERTICALES -->
+    <section id="videos" class="videos-section-slider">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vida en VitaNova</h2>
+                <p>Descubre a través de nuestros videos el día a día, las actividades y la alegría de nuestros residentes</p>
+            </div>
+            
+            <div class="video-slider-container">
+                <button class="slider-btn slider-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="video-slider-wrapper">
+                    <div class="video-slider-track">
+                        <!-- Video 1 -->
+                        <div class="video-slide">
+                            <div class="video-slide-container">
+                                <div class="slide-video-wrapper vertical-video">
+                                    <video class="slide-video" controls poster="img/video-thumb1.jpg">
+                                        <source src="img/amoryamistad.mp4" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                    <div class="slide-video-play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="slide-video-info">
+                                    <h3><i class="fas fa-calendar-alt"></i> Un Día Típico</h3>
+                                    <p>Conoce cómo transcurre un día completo en VitaNova, desde las actividades matutinas hasta las veladas familiares.</p>
+                                    <div class="slide-video-meta">
+                                        <span><i class="fas fa-clock"></i> 3:45 min</span>
+                                        <span><i class="fas fa-eye"></i> Actividades diarias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div class="video-slide">
+                            <div class="video-slide-container">
+                                <div class="slide-video-wrapper vertical-video">
+                                    <video class="slide-video" controls poster="img/video-thumb2.jpg">
+                                        <source src="img/como-llegar.mp4" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                    <div class="slide-video-play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="slide-video-info">
+                                    <h3><i class="fas fa-heart"></i> Actividades Recreativas</h3>
+                                    <p>Mira nuestras sesiones de terapia ocupacional, manualidades, música y actividades grupales.</p>
+                                    <div class="slide-video-meta">
+                                        <span><i class="fas fa-clock"></i> 2:30 min</span>
+                                        <span><i class="fas fa-users"></i> En grupo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 3 -->
+                        <div class="video-slide">
+                            <div class="video-slide-container">
+                                <div class="slide-video-wrapper vertical-video">
+                                    <video class="slide-video" controls poster="img/video-thumb3.jpg">
+                                        <source src="videos/testimonios-familias.mp4" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                    <div class="slide-video-play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="slide-video-info">
+                                    <h3><i class="fas fa-comment"></i> Testimonios de Familias</h3>
+                                    <p>Las familias comparten sus experiencias y por qué confiaron en nosotros para el cuidado de sus seres queridos.</p>
+                                    <div class="slide-video-meta">
+                                        <span><i class="fas fa-clock"></i> 4:15 min</span>
+                                        <span><i class="fas fa-family"></i> Testimonios</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 4 -->
+                        <div class="video-slide">
+                            <div class="video-slide-container">
+                                <div class="slide-video-wrapper vertical-video">
+                                    <video class="slide-video" controls poster="img/video-thumb4.jpg">
+                                        <source src="videos/instalaciones.mp4" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                    <div class="slide-video-play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="slide-video-info">
+                                    <h3><i class="fas fa-home"></i> Tour Virtual</h3>
+                                    <p>Recorrido completo por nuestras instalaciones, habitaciones, jardines y áreas comunes.</p>
+                                    <div class="slide-video-meta">
+                                        <span><i class="fas fa-clock"></i> 5:20 min</span>
+                                        <span><i class="fas fa-video"></i> Tour 360°</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn slider-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots">
+                    <span class="slider-dot active" data-slide="0"></span>
+                    <span class="slider-dot" data-slide="1"></span>
+                    <span class="slider-dot" data-slide="2"></span>
+                    <span class="slider-dot" data-slide="3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Galería -->
     <section id="galeria" class="gallery">
         <div class="container">
@@ -255,48 +382,61 @@
             </div>
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Salón Principal">
+                    <div class="image-container">
+                        <img src="img/5.jpeg" alt="Salón Principal">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Salón Principal</h4>
+                        <h4>Compañía</h4>
                         <p>Espacio para actividades grupales y convivencia</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1758&q=80" alt="Habitación Privada">
+                    <div class="image-container">
+                        <img src="img/parque2.jpeg" alt="Habitación Privada">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Habitación Privada</h4>
-                        <p>Confort y seguridad para cada residente</p>
+                        <h4>Paseos</h4>
+                        <p>Seguridad para cada residente</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519206591951-0d613d5f4cc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1772&q=80" alt="Jardín Terapéutico">
+                    <div class="image-container">
+                        <img src="img/parque.jpeg" alt="Jardín Terapéutico">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Jardín Terapéutico</h4>
+                        <h4>Salidas</h4>
                         <p>Espacio natural para relax y actividades al aire libre</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Comedor">
+                    <div class="image-container">
+                        <img src="img/4.jpeg" alt="Comedor">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Comedor Principal</h4>
-                        <p>Ambiente acogedor para disfrutar las comidas</p>
+                        <h4>Visitas</h4>
+                        <p>Ambiente familiar</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1820&q=80" alt="Sala de Terapia">
+                    <div class="image-container">
+                        <img src="img/3.jpeg" alt="Sala de Terapia">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Sala de Terapia</h4>
-                        <p>Espacio para rehabilitación y actividades físicas</p>
+                        <h4>Sonrisas</h4>
+                        <p>Espacios y actividades físicas</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Área de Enfermería">
+                    <div class="image-container">
+                        <img src="img/2.jpeg" alt="Área de Enfermería">
+                    </div>
                     <div class="gallery-overlay">
-                        <h4>Área de Enfermería</h4>
-                        <p>Atención médica permanente y especializada</p>
+                        <h4>Cumpleaños</h4>
+                        <p>Dia agradable</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -354,7 +494,6 @@
                 <div class="contact-form-container">
                     <h3>Solicita Información o una Visita</h3>
                     <form id="formContacto">
-                        <!-- Opciones de tipo de solicitud -->
                         <div class="form-group">
                             <label>¿Qué deseas realizar? *</label>
                             <div class="solicitud-opciones">
@@ -383,12 +522,10 @@
                                 <label for="telefono">Teléfono *</label>
                                 <input type="tel" id="telefono" class="form-control" required>
                             </div>
-                            <!-- Campo de parentesco - solo visible para visitas -->
                             <div class="form-group parentesco-field" id="parentescoField">
                                 <label for="parentesco">Parentesco *</label>
                                 <input type="text" id="parentesco" class="form-control" placeholder="Ej: Hijo/a, sobrino/a, etc.">
                             </div>
-                            <!-- Para consultas, este campo estará oculto -->
                             <div class="form-group" id="fechaField">
                                 <label for="fechaPreferida">Fecha Preferida (para visitas)</label>
                                 <input type="date" id="fechaPreferida" class="form-control">
@@ -404,9 +541,6 @@
                                 <option value="enfermeria">Enfermería 24 Horas</option>
                                 <option value="ame">AME (Atención Médica Especial)</option>
                                 <option value="cuidado-personal">Cuidado Personal Integral</option>
-                                <option value="terapias">Terapias Especializadas</option>
-                                <option value="transporte">Transporte y Acompañamiento</option>
-                                <option value="varios">Varios servicios</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -420,7 +554,7 @@
         </div>
     </section>
 
-    <!-- Mapa Ancho con Marcador (DESPUÉS DEL CONTACTO) -->
+    <!-- Mapa -->
     <section id="ubicacion" class="map-full-section">
         <div class="container">
             <div class="section-title">
@@ -446,7 +580,7 @@
                            Quinta Oriental<br>
                            Cúcuta, Colombia</p>
                         <p>Zona residencial tranquila y de fácil acceso por principales vías.</p>
-                        <a href="https://maps.google.com/?q=Calle+1+%237e-55+Quinta+Oriental+Cúcuta" target="_blank" class="map-action-btn">
+                        <a href="https://maps.app.goo.gl/3rsmbDoCgn94iRQ27" target="_blank" class="map-action-btn">
                             <i class="fas fa-directions"></i> Abrir en Google Maps
                         </a>
                     </div>
@@ -557,6 +691,7 @@
                     <a href="#inicio">Inicio</a>
                     <a href="#nosotros">Sobre Nosotros</a>
                     <a href="#servicios">Servicios</a>
+                    <a href="#videos">Videos</a>
                     <a href="#galeria">Galería</a>
                     <a href="#contacto">Contacto</a>
                     <a href="#ubicacion">Ubicación</a>
@@ -585,6 +720,85 @@
             </div>
         </div>
     </footer>
+
     <script src="js/script.js"></script>
+    
+    <style>
+        /* Estilos para notificaciones */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: #6ba43a;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            max-width: 400px;
+        }
+        
+        .notification-error {
+            background: #ff3d6a;
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .notification-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Estilos para errores de formulario */
+        .field-error {
+            color: #ff3d6a;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-container {
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </body>
 </html>
