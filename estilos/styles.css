@@ -283,7 +283,7 @@ header.scrolled {
     box-shadow: var(--shadow-hard);
 }
 
-/* ===== HERO SEPARADO CON LETRA MÁS PEQUEÑA ===== */
+/* ===== HERO - RESTAURADO: fondo oscuro, texto blanco (COMO ESTABA) ===== */
 .hero {
     padding: 200px 0 150px;
     margin-top: 90px;
@@ -331,23 +331,22 @@ header.scrolled {
     text-align: center;
 }
 
-/* TEXTO MÁS PEQUEÑO EN HERO */
 .hero h2 {
-    font-size: 2.2rem; /* Reducido de 2.5rem */
-    margin-bottom: 20px; /* Reducido */
-    color: var(--color-white); /* Cambiado a blanco */
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--color-white);
     line-height: 1.1;
     opacity: 0;
     transform: translateY(40px);
     animation: fadeInUp 0.8s forwards 0.3s;
-    font-weight: 700; /* Reducido */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Más sombra para mejor legibilidad */
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 1rem; /* Reducido de 1.1rem */
-    color: rgba(255, 255, 255, 0.9); /* Más transparente */
-    margin-bottom: 35px; /* Reducido */
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
     opacity: 0;
     transform: translateY(40px);
     animation: fadeInUp 0.8s forwards 0.5s;
@@ -553,7 +552,7 @@ header.scrolled {
     transform: scale(1.1);
 }
 
-/* ===== SLIDER DE VIDEOS MEJORADO PARA VERTICALES ===== */
+/* ===== SLIDER DE VIDEOS - CORREGIDO: videos se ven COMPLETOS ===== */
 .videos-section-slider {
     padding: 120px 0;
     background: var(--gradient-light);
@@ -563,9 +562,9 @@ header.scrolled {
 
 .video-slider-container {
     position: relative;
-    max-width: 800px; /* Más estrecho para videos verticales */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 20px 80px; /* Más espacio para botones */
+    padding: 20px 80px;
 }
 
 .video-slider-wrapper {
@@ -607,19 +606,19 @@ header.scrolled {
 .slide-video-wrapper {
     position: relative;
     width: 100%;
-    height: 600px; /* Más alto para videos verticales */
+    height: 600px;
     overflow: hidden;
     border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
 }
 
 .slide-video-wrapper.vertical-video {
-    height: 600px; /* Altura específica para videos verticales */
+    height: 600px;
 }
 
 .slide-video {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Cambiado a contain para ver video completo */
+    object-fit: contain; /* CORREGIDO: muestra el video COMPLETO sin recortar */
     display: block;
     background: #000;
 }
@@ -766,6 +765,9 @@ header.scrolled {
 .slider-dot:hover {
     background: var(--color-primary-light);
 }
+
+/* ===== RESTO DEL CSS SIN CAMBIOS (SERVICIOS, GALERÍA, CONTACTO, MAPA, FOOTER, RESPONSIVE) ===== */
+/* ... (todo el resto de tu CSS original se mantiene IDÉNTICO) ... */
 
 /* ===== SERVICIOS ===== */
 .services {
