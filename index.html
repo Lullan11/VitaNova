@@ -7,13 +7,11 @@
     <title>Vita Nova | Hogar para Adultos Mayores</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="estilos/styles.css">
 </head>
 
 <body>
-    <!-- Header Separado -->
+    <!-- Header Separado CON REDES SOCIALES AGREGADAS -->
     <header>
         <div class="container">
             <nav class="nav-container">
@@ -27,11 +25,18 @@
                     <li><a href="#nosotros">Sobre Nosotros</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#videos">Videos</a></li>
+                    <li><a href="#residentes">Residentes</a></li>
                     <li><a href="#galeria">Galería</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#ubicacion">Ubicación</a></li>
                 </ul>
                 <div class="nav-cta">
+                    <!-- REDES SOCIALES AGREGADAS EN EL HEADER -->
+                    <div class="header-social">
+                        <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank" class="header-social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank" class="header-social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@CodeVitaNova/shorts" target="_blank" class="header-social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                     <a href="https://api.whatsapp.com/send/?phone=573222044690&text=Hola+VitaNova%2C+me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+servicios&type=phone_number&app_absent=0" class="phone-number">
                         <i class="fas fa-phone-alt"></i>
                         <span>322 204 4690</span>
@@ -44,7 +49,7 @@
         </div>
     </header>
 
-    <!-- Hero - RESTAURADO: fondo oscuro, texto blanco (COMO ESTABA ORIGINALMENTE) -->
+    <!-- Hero -->
     <section id="inicio" class="hero">
         <div class="hero-bg">
             <div class="particles-container" id="particles"></div>
@@ -61,7 +66,7 @@
         </div>
     </section>
 
-    <!-- Sobre Nosotros - CORREGIDO: "24/7" en lugar de "24" -->
+    <!-- Sobre Nosotros -->
     <section id="nosotros" class="about">
         <div class="container">
             <div class="section-title">
@@ -90,13 +95,94 @@
                     </div>
                     
                 </div>
-                <div class="about-visual">
-                    <div class="visual-main floating">
-                        <img src="img/parque3.jpeg" alt="Equipo de Vita Nova">
+                <!-- IMÁGENES INTERCAMBIABLES -->
+                <div class="about-visual" id="interactiveImages">
+                    <div class="visual-main floating" id="imgMain">
+                        <img src="img/parque3.jpeg" alt="Equipo de Vita Nova" id="mainImage">
                     </div>
-                    <div class="visual-secondary floating" style="animation-delay: 2.5s;">
-                        <img src="img/parque4.jpeg" alt="Actividades en Vita Nova">
+                    <div class="visual-secondary floating" id="imgSecondary" style="animation-delay: 2.5s;">
+                        <img src="img/parque4.jpeg" alt="Actividades en Vita Nova" id="secondaryImage">
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE RESIDENTES -->
+    <section id="residentes" class="videos-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Residentes</h2>
+                <p>El corazón de Vita Nova: Conoce las sonrisas que hacen de este un verdadero hogar</p>
+            </div>
+            
+            <div class="video-slider-container" style="max-width: 900px;">
+                <button class="slider-btn video-prev" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="video-slider-wrapper">
+                    <div class="video-slider-track">
+                        <!-- FOTOS DE ABUELITOS -->
+                        <div class="video-slide">
+                            <div class="resident-card">
+                                <div class="resident-image">
+                                    <img src="img/residente1.jpg" alt="Residente 1">
+                                </div>
+                                <div class="resident-info">
+                                    <h3>Doña María</h3>
+                                    <p>"Aquí encontré una nueva familia. Me encantan las tardes de manualidades."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-slide">
+                            <div class="resident-card">
+                                <div class="resident-image">
+                                    <img src="img/residente2.jpg" alt="Residente 2">
+                                </div>
+                                <div class="resident-info">
+                                    <h3>Don José</h3>
+                                    <p>"El jardín es mi lugar favorito. Todos los días juego dominó con mis amigos."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-slide">
+                            <div class="resident-card">
+                                <div class="resident-image">
+                                    <img src="img/residente3.jpg" alt="Residente 3">
+                                </div>
+                                <div class="resident-info">
+                                    <h3>Señora Elena</h3>
+                                    <p>"La atención es excelente, me siento cuidada y respetada siempre."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-slide">
+                            <div class="resident-card">
+                                <div class="resident-image">
+                                    <img src="img/residente4.jpg" alt="Residente 4">
+                                </div>
+                                <div class="resident-info">
+                                    <h3>Don Luis</h3>
+                                    <p>"Me encanta la música y aquí siempre tenemos actividades para compartir."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn video-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots video-dots">
+                    <span class="slider-dot active" data-slide="0"></span>
+                    <span class="slider-dot" data-slide="1"></span>
+                    <span class="slider-dot" data-slide="2"></span>
+                    <span class="slider-dot" data-slide="3"></span>
                 </div>
             </div>
         </div>
@@ -110,7 +196,6 @@
                 <p>Descubre nuestra gama completa de servicios diseñados para el máximo confort y bienestar</p>
             </div>
             
-
             <div class="services-filter">
                 <button class="filter-btn active" data-filter="all">
                     <i class="fas fa-th-large"></i> Todos
@@ -126,11 +211,11 @@
                 </button>
             </div>
 
-            <div class="services-grid">
+            <div class="services-grid" id="servicesGrid">
                 <!-- Servicio 1 - Hospedaje Permanente -->
-                <div class="service-card accent" data-category="alojamiento">
+                <div class="service-card" data-category="alojamiento" data-color="blue">
                     <div class="service-card-header">
-                        <div class="service-icon-container accent">
+                        <div class="service-icon-container">
                             <i class="fas fa-home"></i>
                         </div>
                         <h3>Hospedaje Permanente</h3>
@@ -148,9 +233,9 @@
                 </div>
 
                 <!-- Servicio 2 - Guardería por Días -->
-                <div class="service-card green" data-category="alojamiento">
+                <div class="service-card" data-category="alojamiento" data-color="green">
                     <div class="service-card-header">
-                        <div class="service-icon-container green">
+                        <div class="service-icon-container" style="background: var(--color-secondary);">
                             <i class="fas fa-calendar-day"></i>
                         </div>
                         <h3>Guardería por Días</h3>
@@ -168,9 +253,9 @@
                 </div>
 
                 <!-- Servicio 3 - Alimentación Balanceada -->
-                <div class="service-card" data-category="bienestar">
+                <div class="service-card" data-category="bienestar" data-color="accent">
                     <div class="service-card-header">
-                        <div class="service-icon-container">
+                        <div class="service-icon-container" style="background: var(--color-accent);">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3>Alimentación Balanceada</h3>
@@ -188,7 +273,7 @@
                 </div>
 
                 <!-- Servicio 4 - Enfermería 24 Horas -->
-                <div class="service-card" data-category="salud">
+                <div class="service-card" data-category="salud" data-color="blue">
                     <div class="service-card-header">
                         <div class="service-icon-container">
                             <i class="fas fa-user-nurse"></i>
@@ -208,28 +293,29 @@
                 </div>
 
                 <!-- Servicio 5 - AME -->
-                <div class="service-card green" data-category="salud">
+                <div class="service-card" data-category="salud" data-color="green">
                     <div class="service-card-header">
-                        <div class="service-icon-container green">
-                            <i class="fas fa-stethoscope"></i>
+                        <div class="service-icon-container" style="background: var(--color-secondary);">
+                            <i class="fas fa-truck-medical"></i>
                         </div>
-                        <h3>AME (Atención Médica Especial)</h3>
-                        <p>Cuidado médico integral</p>
+                        <h3>AME</h3>
+                        <p>Atención Médica Especial</p>
                     </div>
                     <div class="service-card-content">
-                        <p>Servicio medico de urgenica y emergencia, desplazamiento en ambulancia si es necesario.</p>
+                        <p><strong>Servicio domiciliario de urgencias y emergencias.</strong> Nuestro equipo médico se desplaza a tu domicilio en caso de necesidad, con ambulancia equipada si la situación lo requiere.</p>
                         <ul class="service-features">
+                            <li>Atención de urgencias en casa</li>
+                            <li>Desplazamiento en ambulancia si es necesario</li>
                             <li>Coordinación con especialistas</li>
-                            <li>Revisión médica integral mensual</li>
                             <li>Seguimiento de condiciones crónicas</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Servicio 6 - Cuidado Personal Integral -->
-                <div class="service-card accent" data-category="bienestar">
+                <div class="service-card" data-category="bienestar" data-color="accent">
                     <div class="service-card-header">
-                        <div class="service-icon-container accent">
+                        <div class="service-icon-container" style="background: var(--color-accent);">
                             <i class="fas fa-hand-sparkles"></i>
                         </div>
                         <h3>Cuidado Personal Integral</h3>
@@ -248,25 +334,25 @@
         </div>
     </section>
 
-    <!-- SLIDER DE VIDEOS - CORREGIDO: videos se ven COMPLETOS (object-fit: contain) -->
-    <section id="videos" class="videos-section-slider">
+    <!-- SECCIÓN DE VIDEOS -->
+    <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-title">
                 <h2>Vida en VitaNova</h2>
-                <p>Descubre a través de nuestros videos el día a día, las actividades y la alegría de nuestros residentes</p>
+                <p>Descubre a través de nuestros videos el día a día de nuestros residentes</p>
             </div>
             
             <div class="video-slider-container">
-                <button class="slider-btn slider-prev">
+                <button class="slider-btn video-prev" disabled>
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
                 <div class="video-slider-wrapper">
                     <div class="video-slider-track">
-                        <!-- Video 1 -->
+                        <!-- VIDEO 1 -->
                         <div class="video-slide">
                             <div class="video-slide-container">
-                                <div class="slide-video-wrapper vertical-video">
+                                <div class="slide-video-wrapper">
                                     <video class="slide-video" controls poster="img/video-thumb1.jpg">
                                         <source src="img/amoryamistad.mp4" type="video/mp4">
                                         Tu navegador no soporta el elemento de video.
@@ -277,19 +363,19 @@
                                 </div>
                                 <div class="slide-video-info">
                                     <h3><i class="fas fa-calendar-alt"></i> Un Día Típico</h3>
-                                    <p>Conoce cómo transcurre un día completo en VitaNova, desde las actividades matutinas hasta las veladas familiares.</p>
+                                    <p>Conoce cómo transcurre un día completo en VitaNova.</p>
                                     <div class="slide-video-meta">
                                         <span><i class="fas fa-clock"></i> 3:45 min</span>
-                                        <span><i class="fas fa-eye"></i> Actividades diarias</span>
+                                        <span><i class="fas fa-eye"></i> Actividades</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Video 2 -->
+                        <!-- VIDEO 2 -->
                         <div class="video-slide">
                             <div class="video-slide-container">
-                                <div class="slide-video-wrapper vertical-video">
+                                <div class="slide-video-wrapper">
                                     <video class="slide-video" controls poster="img/video-thumb2.jpg">
                                         <source src="img/como-llegar.mp4" type="video/mp4">
                                         Tu navegador no soporta el elemento de video.
@@ -300,7 +386,7 @@
                                 </div>
                                 <div class="slide-video-info">
                                     <h3><i class="fas fa-heart"></i> Actividades Recreativas</h3>
-                                    <p>Mira nuestras sesiones de terapia ocupacional, manualidades, música y actividades grupales.</p>
+                                    <p>Sesiones de terapia ocupacional y actividades grupales.</p>
                                     <div class="slide-video-meta">
                                         <span><i class="fas fa-clock"></i> 2:30 min</span>
                                         <span><i class="fas fa-users"></i> En grupo</span>
@@ -309,10 +395,10 @@
                             </div>
                         </div>
                         
-                        <!-- Video 3 -->
+                        <!-- VIDEO 3 -->
                         <div class="video-slide">
                             <div class="video-slide-container">
-                                <div class="slide-video-wrapper vertical-video">
+                                <div class="slide-video-wrapper">
                                     <video class="slide-video" controls poster="img/video-thumb3.jpg">
                                         <source src="videos/testimonios-familias.mp4" type="video/mp4">
                                         Tu navegador no soporta el elemento de video.
@@ -323,7 +409,7 @@
                                 </div>
                                 <div class="slide-video-info">
                                     <h3><i class="fas fa-comment"></i> Testimonios de Familias</h3>
-                                    <p>Las familias comparten sus experiencias y por qué confiaron en nosotros para el cuidado de sus seres queridos.</p>
+                                    <p>Las familias comparten sus experiencias.</p>
                                     <div class="slide-video-meta">
                                         <span><i class="fas fa-clock"></i> 4:15 min</span>
                                         <span><i class="fas fa-family"></i> Testimonios</span>
@@ -332,10 +418,10 @@
                             </div>
                         </div>
                         
-                        <!-- Video 4 -->
+                        <!-- VIDEO 4 -->
                         <div class="video-slide">
                             <div class="video-slide-container">
-                                <div class="slide-video-wrapper vertical-video">
+                                <div class="slide-video-wrapper">
                                     <video class="slide-video" controls poster="img/video-thumb4.jpg">
                                         <source src="videos/instalaciones.mp4" type="video/mp4">
                                         Tu navegador no soporta el elemento de video.
@@ -346,10 +432,10 @@
                                 </div>
                                 <div class="slide-video-info">
                                     <h3><i class="fas fa-home"></i> Tour Virtual</h3>
-                                    <p>Recorrido completo por nuestras instalaciones, habitaciones, jardines y áreas comunes.</p>
+                                    <p>Recorrido por nuestras instalaciones.</p>
                                     <div class="slide-video-meta">
                                         <span><i class="fas fa-clock"></i> 5:20 min</span>
-                                        <span><i class="fas fa-video"></i> Tour 360°</span>
+                                        <span><i class="fas fa-video"></i> Tour</span>
                                     </div>
                                 </div>
                             </div>
@@ -357,11 +443,11 @@
                     </div>
                 </div>
                 
-                <button class="slider-btn slider-next">
+                <button class="slider-btn video-next">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 
-                <div class="slider-dots">
+                <div class="slider-dots video-dots">
                     <span class="slider-dot active" data-slide="0"></span>
                     <span class="slider-dot" data-slide="1"></span>
                     <span class="slider-dot" data-slide="2"></span>
@@ -434,7 +520,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
 
@@ -537,13 +622,13 @@
                                 <option value="guarderia">Guardería por Días</option>
                                 <option value="alimentacion">Alimentación Balanceada</option>
                                 <option value="enfermeria">Enfermería 24 Horas</option>
-                                <option value="ame">AME (Atención Médica Especial)</option>
+                                <option value="ame">AME (Urgencias Domiciliarias)</option>
                                 <option value="cuidado-personal">Cuidado Personal Integral</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="mensaje">Mensaje o Consulta *</label>
-                            <textarea id="mensaje" class="form-control" placeholder="Cuéntanos cómo podemos ayudarte..." required rows="5"></textarea>
+                            <textarea id="mensaje" class="form-control" placeholder="Cuéntanos cómo podemos ayudarte..." required rows="4"></textarea>
                         </div>
                         <button type="submit" class="btn form-submit">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>
                     </form>
@@ -566,9 +651,6 @@
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.920602709174!2d-72.49623702417553!3d7.897660592154515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6645007b9579a3%3A0x46f37b0692289ac3!2sHogar%20Geriatrico%20VitaNova!5e0!3m2!1ses!2sco!4v1704898784259!5m2!1ses!2sco"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <div class="map-marker">
-                        <div class="marker-pin"></div>
-                    </div>
                 </div>
                 
                 <div class="map-info-overlay">
@@ -678,11 +760,14 @@
                     </div>
                     <p>Un espacio creado con amor y profesionalismo para el cuidado integral de adultos mayores. Donde cada día es una nueva oportunidad para vivir con dignidad, alegría y bienestar.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@CodeVitaNova/shorts" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/573222044690" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@CodeVitaNova/shorts" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/573222044690" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                        <i class="fas fa-info-circle"></i> ¡Síguenos para ver más contenido y novedades!
+                    </p>
                 </div>
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
@@ -690,6 +775,7 @@
                     <a href="#nosotros">Sobre Nosotros</a>
                     <a href="#servicios">Servicios</a>
                     <a href="#videos">Videos</a>
+                    <a href="#residentes">Residentes</a>
                     <a href="#galeria">Galería</a>
                     <a href="#contacto">Contacto</a>
                     <a href="#ubicacion">Ubicación</a>
@@ -700,7 +786,7 @@
                     <a href="#servicios">Guardería por Días</a>
                     <a href="#servicios">Alimentación Balanceada</a>
                     <a href="#servicios">Enfermería 24 Horas</a>
-                    <a href="#servicios">AME</a>
+                    <a href="#servicios">AME (Urgencias Domiciliarias)</a>
                     <a href="#servicios">Cuidado Personal</a>
                 </div>
                 <div class="footer-column">
@@ -720,83 +806,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    
-    <style>
-        /* Estilos para notificaciones */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: #6ba43a;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-            max-width: 400px;
-        }
-        
-        .notification-error {
-            background: #ff3d6a;
-        }
-        
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-        
-        .notification-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-        
-        .notification-close:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        /* Estilos para errores de formulario */
-        .field-error {
-            color: #ff3d6a;
-            font-size: 0.8rem;
-            margin-top: 5px;
-            display: block;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .image-container {
-            overflow: hidden;
-        }
-        
-        .image-container img {
-            transition: transform 0.5s ease;
-        }
-        
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
-    </style>
 </body>
+
 </html>
