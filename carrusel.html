@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carruseles Uno por Uno - Fotos y Videos</title>
+    <style>
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px; /* Ancho tipo móvil */
+            width: 100%;
+        }
+
+        /* Estilos comunes para las secciones */
+        .carousel-section {
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: white;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 5px solid #ffd700;
+        }
+
+        /* ===== CARRUSEL DE FOTOS (UNO POR UNO) ===== */
+        .photo-carousel {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-main {
+            position: relative;
+            width: 100%;
+            background: #000;
+        }
+
+        .photo-main img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3; /* Proporción estándar para fotos */
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 15px;
+        }
+
+        .photo-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .photo-info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .photo-counter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+            z-index: 5;
+        }
+
+        /* ===== REPRODUCTOR DE VIDEOS (UNO POR UNO CON SOLO FLECHAS) ===== */
+        .video-carousel {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #000;
+        }
+
+        .video-main {
+            position: relative;
+            width: 100%;
+        }
+
+        .video-main video {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9/16; /* Proporción para videos verticales */
+            display: block;
+            background: #1a1a1a;
+            object-fit: contain; /* Muestra el video completo */
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 15px;
+            pointer-events: none; /* Permite hacer clic a través de la info */
+        }
+
+        .video-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .video-info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .video-counter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+            z-index: 5;
+        }
+
+        /* Botones de navegación (FLECHAS) - Estilo único para ambos */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.9);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-arrow:hover {
+            background: #ffed4e;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .nav-arrow:disabled {
+            background: rgba(204, 204, 204, 0.5);
+            cursor: not-allowed;
+            opacity: 0.5;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .nav-arrow.prev {
+            left: 15px;
+        }
+
+        .nav-arrow.next {
+            right: 15px;
+        }
+
+        /* Badge de orientación para videos */
+        .orientation-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            backdrop-filter: blur(5px);
+            z-index: 5;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .carousel-section {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .photo-info h3, .video-info h3 {
+                font-size: 18px;
+            }
+
+            .photo-info p, .video-info p {
+                font-size: 13px;
+            }
+
+            .photo-counter, .video-counter {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CARRUSEL DE FOTOS (UNO POR UNO) -->
+        <div class="carousel-section">
+            <h2 class="section-title">📸 Carrusel de Fotos</h2>
+            <div class="photo-carousel">
+                <div class="photo-main">
+                    <img id="currentPhoto" src="" alt="Foto actual">
+                    <div class="photo-counter" id="photoCounter">1 / 6</div>
+                    <div class="photo-info">
+                        <h3 id="photoTitle">Montañas Nevadas</h3>
+                        <p id="photoDescription">Alpes suizos</p>
+                    </div>
+                </div>
+                
+                <!-- Flechas de navegación -->
+                <button class="nav-arrow prev" id="prevPhotoBtn" title="Foto anterior">←</button>
+                <button class="nav-arrow next" id="nextPhotoBtn" title="Foto siguiente">→</button>
+            </div>
+        </div>
+
+        <!-- CARRUSEL DE VIDEOS (UNO POR UNO CON SOLO FLECHAS) -->
+        <div class="carousel-section">
+            <h2 class="section-title">🎬 Carrusel de Videos</h2>
+            <div class="video-carousel">
+                <div class="video-main">
+                    <video id="mainVideo" controls autoplay muted>
+                        <source src="" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <div class="orientation-badge" id="orientationBadge">📱 Vertical</div>
+                    <div class="video-counter" id="videoCounter">1 / 5</div>
+                    <div class="video-info">
+                        <h3 id="videoTitle">Big Buck Bunny</h3>
+                        <p id="videoDescription">Una divertida aventura animada</p>
+                    </div>
+                </div>
+                
+                <!-- Flechas de navegación -->
+                <button class="nav-arrow prev" id="prevVideoBtn" title="Video anterior">←</button>
+                <button class="nav-arrow next" id="nextVideoBtn" title="Video siguiente">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== CARRUSEL DE FOTOS (UNO POR UNO) =====
+        function setupPhotoCarousel() {
+            // Lista de fotos con metadatos
+            const photos = [
+                {
+                    src: "https://picsum.photos/800/600?random=1",
+                    title: "Montañas Nevadas",
+                    description: "Alpes suizos"
+                },
+                {
+                    src: "https://picsum.photos/800/600?random=2",
+                    title: "Playa Paraíso",
+                    description: "Maldivas"
+                },
+                {
+                    src: "https://picsum.photos/800/600?random=3",
+                    title: "Horizonte Urbano",
+                    description: "Nueva York"
+                },
+                {
+                    src: "https://picsum.photos/800/600?random=4",
+                    title: "Bosque Mágico",
+                    description: "Canadá"
+                },
+                {
+                    src: "https://picsum.photos/800/600?random=5",
+                    title: "Dunas del Sahara",
+                    description: "Marruecos"
+                },
+                {
+                    src: "https://picsum.photos/800/600?random=6",
+                    title: "Cascada Esmeralda",
+                    description: "Islandia"
+                }
+            ];
+
+            let currentIndex = 0;
+            const photoImg = document.getElementById('currentPhoto');
+            const photoTitle = document.getElementById('photoTitle');
+            const photoDescription = document.getElementById('photoDescription');
+            const photoCounter = document.getElementById('photoCounter');
+            const prevBtn = document.getElementById('prevPhotoBtn');
+            const nextBtn = document.getElementById('nextPhotoBtn');
+
+            function loadPhoto(index) {
+                if (index < 0 || index >= photos.length) return;
+                
+                currentIndex = index;
+                const photo = photos[currentIndex];
+                
+                photoImg.src = photo.src;
+                photoTitle.textContent = photo.title;
+                photoDescription.textContent = photo.description;
+                photoCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+                
+                updateButtons();
+            }
+
+            function updateButtons() {
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === photos.length - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    loadPhoto(currentIndex - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < photos.length - 1) {
+                    loadPhoto(currentIndex + 1);
+                }
+            });
+
+            // Cargar primera foto
+            loadPhoto(0);
+        }
+
+        // ===== CARRUSEL DE VIDEOS (UNO POR UNO CON SOLO FLECHAS) =====
+        function setupVideoCarousel() {
+            // Lista de videos con metadatos
+            const videos = [
+                {
+                    src: "img/felices.mp4",
+                    title: "Big Buck Bunny",
+                    description: "Una divertida aventura animada",
+                    orientation: "horizontal"
+                },
+                {
+                    src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                    title: "Elephant's Dream",
+                    description: "Un viaje surrealista animado",
+                    orientation: "horizontal"
+                },
+                {
+                    src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                    title: "Mi Video Vertical 1",
+                    description: "Video en formato vertical",
+                    orientation: "vertical"
+                },
+                {
+                    src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+                    title: "Mi Video Vertical 2",
+                    description: "Otro video vertical",
+                    orientation: "vertical"
+                },
+                {
+                    src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+                    title: "For Bigger Fun",
+                    description: "Video horizontal normal",
+                    orientation: "horizontal"
+                }
+            ];
+
+            let currentIndex = 0;
+            const mainVideo = document.getElementById('mainVideo');
+            const videoTitle = document.getElementById('videoTitle');
+            const videoDescription = document.getElementById('videoDescription');
+            const videoCounter = document.getElementById('videoCounter');
+            const orientationBadge = document.getElementById('orientationBadge');
+            const prevBtn = document.getElementById('prevVideoBtn');
+            const nextBtn = document.getElementById('nextVideoBtn');
+
+            function adjustOrientation(orientation) {
+                if (orientation === 'vertical') {
+                    mainVideo.style.aspectRatio = '9/16';
+                    orientationBadge.textContent = '📱 Vertical';
+                    orientationBadge.style.backgroundColor = 'rgba(255, 215, 0, 0.8)';
+                    orientationBadge.style.color = '#333';
+                } else {
+                    mainVideo.style.aspectRatio = '16/9';
+                    orientationBadge.textContent = '🖥️ Horizontal';
+                    orientationBadge.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                    orientationBadge.style.color = 'white';
+                }
+            }
+
+            function loadVideo(index) {
+                if (index < 0 || index >= videos.length) return;
+                
+                currentIndex = index;
+                const video = videos[currentIndex];
+                
+                // Pausar el video actual antes de cambiar
+                mainVideo.pause();
+                
+                // Cambiar la fuente
+                mainVideo.src = video.src;
+                videoTitle.textContent = video.title;
+                videoDescription.textContent = video.description;
+                videoCounter.textContent = `${currentIndex + 1} / ${videos.length}`;
+                
+                // Ajustar orientación
+                adjustOrientation(video.orientation);
+                
+                // Cargar y reproducir
+                mainVideo.load();
+                mainVideo.play().catch(e => console.log("Reproducción automática no permitida"));
+                
+                updateButtons();
+            }
+
+            function updateButtons() {
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === videos.length - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    loadVideo(currentIndex - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < videos.length - 1) {
+                    loadVideo(currentIndex + 1);
+                }
+            });
+
+            // Cargar primer video
+            loadVideo(0);
+        }
+
+        // Inicializar todo
+        document.addEventListener('DOMContentLoaded', () => {
+            setupPhotoCarousel();
+            setupVideoCarousel();
+        });
+    </script>
+</body>
+</html>

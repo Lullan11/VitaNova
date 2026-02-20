@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- Header Separado CON REDES SOCIALES AGREGADAS -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav class="nav-container">
@@ -31,7 +31,6 @@
                     <li><a href="#ubicacion">Ubicación</a></li>
                 </ul>
                 <div class="nav-cta">
-                    <!-- REDES SOCIALES AGREGADAS EN EL HEADER -->
                     <div class="header-social">
                         <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank" class="header-social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank" class="header-social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -95,7 +94,6 @@
                     </div>
                     
                 </div>
-                <!-- IMÁGENES INTERCAMBIABLES -->
                 <div class="about-visual" id="interactiveImages">
                     <div class="visual-main floating" id="imgMain">
                         <img src="img/parque3.jpeg" alt="Equipo de Vita Nova" id="mainImage">
@@ -108,82 +106,26 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE RESIDENTES -->
-    <section id="residentes" class="videos-section">
+    <!-- Residentes (NUEVO CARRUSEL UNO POR UNO) -->
+    <section id="residentes" class="carousel-section-nova">
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Residentes</h2>
                 <p>El corazón de Vita Nova: Conoce las sonrisas que hacen de este un verdadero hogar</p>
             </div>
             
-            <div class="video-slider-container" style="max-width: 900px;">
-                <button class="slider-btn video-prev" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="video-slider-wrapper">
-                    <div class="video-slider-track">
-                        <!-- FOTOS DE ABUELITOS -->
-                        <div class="video-slide">
-                            <div class="resident-card">
-                                <div class="resident-image">
-                                    <img src="img/residente1.jpg" alt="Residente 1">
-                                </div>
-                                <div class="resident-info">
-                                    <h3>Doña María</h3>
-                                    <p>"Aquí encontré una nueva familia. Me encantan las tardes de manualidades."</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="video-slide">
-                            <div class="resident-card">
-                                <div class="resident-image">
-                                    <img src="img/residente2.jpg" alt="Residente 2">
-                                </div>
-                                <div class="resident-info">
-                                    <h3>Don José</h3>
-                                    <p>"El jardín es mi lugar favorito. Todos los días juego dominó con mis amigos."</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="video-slide">
-                            <div class="resident-card">
-                                <div class="resident-image">
-                                    <img src="img/residente3.jpg" alt="Residente 3">
-                                </div>
-                                <div class="resident-info">
-                                    <h3>Señora Elena</h3>
-                                    <p>"La atención es excelente, me siento cuidada y respetada siempre."</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="video-slide">
-                            <div class="resident-card">
-                                <div class="resident-image">
-                                    <img src="img/residente4.jpg" alt="Residente 4">
-                                </div>
-                                <div class="resident-info">
-                                    <h3>Don Luis</h3>
-                                    <p>"Me encanta la música y aquí siempre tenemos actividades para compartir."</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="nova-carousel photo-carousel">
+                <div class="carousel-main">
+                    <img id="residentPhoto" src="img/camas.jpeg" alt="Residente">
+                    <div class="carousel-counter" id="residentCounter">1 / 4</div>
+                    <div class="carousel-info-bottom">
+                        <h3 id="residentTitle">Doña María</h3>
+                        <p id="residentDescription">"Aquí encontré una nueva familia."</p>
                     </div>
                 </div>
                 
-                <button class="slider-btn video-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <div class="slider-dots video-dots">
-                    <span class="slider-dot active" data-slide="0"></span>
-                    <span class="slider-dot" data-slide="1"></span>
-                    <span class="slider-dot" data-slide="2"></span>
-                    <span class="slider-dot" data-slide="3"></span>
-                </div>
+                <button class="carousel-arrow prev" id="prevResidentBtn" title="Anterior">←</button>
+                <button class="carousel-arrow next" id="nextResidentBtn" title="Siguiente">→</button>
             </div>
         </div>
     </section>
@@ -212,7 +154,6 @@
             </div>
 
             <div class="services-grid" id="servicesGrid">
-                <!-- Servicio 1 - Hospedaje Permanente -->
                 <div class="service-card" data-category="alojamiento" data-color="blue">
                     <div class="service-card-header">
                         <div class="service-icon-container">
@@ -232,7 +173,6 @@
                     </div>
                 </div>
 
-                <!-- Servicio 2 - Guardería por Días -->
                 <div class="service-card" data-category="alojamiento" data-color="green">
                     <div class="service-card-header">
                         <div class="service-icon-container" style="background: var(--color-secondary);">
@@ -252,7 +192,6 @@
                     </div>
                 </div>
 
-                <!-- Servicio 3 - Alimentación Balanceada -->
                 <div class="service-card" data-category="bienestar" data-color="accent">
                     <div class="service-card-header">
                         <div class="service-icon-container" style="background: var(--color-accent);">
@@ -272,7 +211,6 @@
                     </div>
                 </div>
 
-                <!-- Servicio 4 - Enfermería 24 Horas -->
                 <div class="service-card" data-category="salud" data-color="blue">
                     <div class="service-card-header">
                         <div class="service-icon-container">
@@ -292,7 +230,6 @@
                     </div>
                 </div>
 
-                <!-- Servicio 5 - AME -->
                 <div class="service-card" data-category="salud" data-color="green">
                     <div class="service-card-header">
                         <div class="service-icon-container" style="background: var(--color-secondary);">
@@ -312,7 +249,6 @@
                     </div>
                 </div>
 
-                <!-- Servicio 6 - Cuidado Personal Integral -->
                 <div class="service-card" data-category="bienestar" data-color="accent">
                     <div class="service-card-header">
                         <div class="service-icon-container" style="background: var(--color-accent);">
@@ -334,125 +270,30 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE VIDEOS -->
-    <section id="videos" class="videos-section">
+    <!-- Videos (NUEVO CARRUSEL UNO POR UNO) -->
+    <section id="videos" class="carousel-section-nova">
         <div class="container">
             <div class="section-title">
                 <h2>Vida en VitaNova</h2>
                 <p>Descubre a través de nuestros videos el día a día de nuestros residentes</p>
             </div>
             
-            <div class="video-slider-container">
-                <button class="slider-btn video-prev" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="video-slider-wrapper">
-                    <div class="video-slider-track">
-                        <!-- VIDEO 1 -->
-                        <div class="video-slide">
-                            <div class="video-slide-container">
-                                <div class="slide-video-wrapper">
-                                    <video class="slide-video" controls poster="img/video-thumb1.jpg">
-                                        <source src="img/amoryamistad.mp4" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                    <div class="slide-video-play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                </div>
-                                <div class="slide-video-info">
-                                    <h3><i class="fas fa-calendar-alt"></i> Un Día Típico</h3>
-                                    <p>Conoce cómo transcurre un día completo en VitaNova.</p>
-                                    <div class="slide-video-meta">
-                                        <span><i class="fas fa-clock"></i> 3:45 min</span>
-                                        <span><i class="fas fa-eye"></i> Actividades</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- VIDEO 2 -->
-                        <div class="video-slide">
-                            <div class="video-slide-container">
-                                <div class="slide-video-wrapper">
-                                    <video class="slide-video" controls poster="img/video-thumb2.jpg">
-                                        <source src="img/como-llegar.mp4" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                    <div class="slide-video-play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                </div>
-                                <div class="slide-video-info">
-                                    <h3><i class="fas fa-heart"></i> Actividades Recreativas</h3>
-                                    <p>Sesiones de terapia ocupacional y actividades grupales.</p>
-                                    <div class="slide-video-meta">
-                                        <span><i class="fas fa-clock"></i> 2:30 min</span>
-                                        <span><i class="fas fa-users"></i> En grupo</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- VIDEO 3 -->
-                        <div class="video-slide">
-                            <div class="video-slide-container">
-                                <div class="slide-video-wrapper">
-                                    <video class="slide-video" controls poster="img/video-thumb3.jpg">
-                                        <source src="videos/testimonios-familias.mp4" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                    <div class="slide-video-play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                </div>
-                                <div class="slide-video-info">
-                                    <h3><i class="fas fa-comment"></i> Testimonios de Familias</h3>
-                                    <p>Las familias comparten sus experiencias.</p>
-                                    <div class="slide-video-meta">
-                                        <span><i class="fas fa-clock"></i> 4:15 min</span>
-                                        <span><i class="fas fa-family"></i> Testimonios</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- VIDEO 4 -->
-                        <div class="video-slide">
-                            <div class="video-slide-container">
-                                <div class="slide-video-wrapper">
-                                    <video class="slide-video" controls poster="img/video-thumb4.jpg">
-                                        <source src="videos/instalaciones.mp4" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                    <div class="slide-video-play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                </div>
-                                <div class="slide-video-info">
-                                    <h3><i class="fas fa-home"></i> Tour Virtual</h3>
-                                    <p>Recorrido por nuestras instalaciones.</p>
-                                    <div class="slide-video-meta">
-                                        <span><i class="fas fa-clock"></i> 5:20 min</span>
-                                        <span><i class="fas fa-video"></i> Tour</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="nova-carousel video-carousel">
+                <div class="carousel-main">
+                    <video id="mainVideo" controls>
+                        <source src="" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <div class="orientation-badge" id="orientationBadge">📱 Vertical</div>
+                    <div class="carousel-counter" id="videoCounter">1 / 5</div>
+                    <div class="carousel-info-top">
+                        <h3 id="videoTitle">Big Buck Bunny</h3>
+                        <p id="videoDescription">Una divertida aventura animada</p>
                     </div>
                 </div>
                 
-                <button class="slider-btn video-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <div class="slider-dots video-dots">
-                    <span class="slider-dot active" data-slide="0"></span>
-                    <span class="slider-dot" data-slide="1"></span>
-                    <span class="slider-dot" data-slide="2"></span>
-                    <span class="slider-dot" data-slide="3"></span>
-                </div>
+                <button class="carousel-arrow prev" id="prevVideoBtn" title="Video anterior">←</button>
+                <button class="carousel-arrow next" id="nextVideoBtn" title="Video siguiente">→</button>
             </div>
         </div>
     </section>
@@ -690,10 +531,10 @@
         </div>
     </section>
 
-    <!-- Ventana Flotante de Información -->
+    <!-- Ventana Flotante (MÁS PEQUEÑA) -->
     <div class="floating-info-window" id="floatingInfo">
         <div class="floating-header">
-            <h3>Información Rápida</h3>
+            <h3>Info Rápida</h3>
             <button class="close-floating" id="closeFloating">
                 <i class="fas fa-times"></i>
             </button>
@@ -705,7 +546,7 @@
                 </div>
                 <div class="floating-text">
                     <h4>Ubicación</h4>
-                    <p><span class="highlight">Calle 1 #7e-55</span><br>Quinta Oriental, Cúcuta</p>
+                    <p>Calle 1 #7e-55, Cúcuta</p>
                 </div>
             </div>
             <div class="floating-item">
@@ -713,8 +554,8 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="floating-text">
-                    <h4>Horarios de Visita</h4>
-                    <p><span class="highlight">Todos los días</span><br>2:30 PM - 5:00 PM</p>
+                    <h4>Visitas</h4>
+                    <p>Todos los días 2:30-5PM</p>
                 </div>
             </div>
             <div class="floating-item">
@@ -723,27 +564,16 @@
                 </div>
                 <div class="floating-text">
                     <h4>Contacto</h4>
-                    <p><span class="highlight">322 204 4690</span><br>vitanovahogar@gmail.com</p>
-                </div>
-            </div>
-            <div class="floating-item">
-                <div class="floating-icon">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <div class="floating-text">
-                    <h4>Visitas Guiadas</h4>
-                    <p>Agenda tu visita<br><span class="highlight">WhatsApp disponible</span></p>
+                    <p>322 204 4690</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botón para abrir ventana flotante -->
     <div class="floating-toggle" id="floatingToggle">
         <i class="fas fa-info-circle"></i>
     </div>
 
-    <!-- Botón de WhatsApp -->
     <a href="https://wa.me/573222044690?text=Hola%20VitaNova,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -760,10 +590,18 @@
                     </div>
                     <p>Un espacio creado con amor y profesionalismo para el cuidado integral de adultos mayores. Donde cada día es una nueva oportunidad para vivir con dignidad, alegría y bienestar.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@CodeVitaNova/shorts" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/573222044690" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1Ba2nek6EX/" target="_blank" class="social-link facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/vitanovahogar?igsh=MTZlZzg3ajl5bWs0YQ==" target="_blank" class="social-link instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@CodeVitaNova/shorts" target="_blank" class="social-link youtube" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://wa.me/573222044690" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                     <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
                         <i class="fas fa-info-circle"></i> ¡Síguenos para ver más contenido y novedades!

@@ -1,43 +1,19 @@
 // ===== VARIABLES GLOBALES =====
 let isFloatingOpen = false;
 
-// Variables para slider de videos
-let videoCurrentSlide = 0;
-let videoSlideCount = 0;
-let videoSliderTrack;
-let videoPrevBtn;
-let videoNextBtn;
-let videoDots = [];
-
-// Variables para slider de residentes
-let residentsCurrentSlide = 0;
-let residentsSlideCount = 0;
-let residentsSliderTrack;
-let residentsPrevBtn;
-let residentsNextBtn;
-let residentsDots = [];
-let residentsVisibleSlides = 1;
-
 // ===== INICIALIZACIÓN =====
 function init() {
     initMobileMenu();
     initSmoothScrolling();
     initServiceFilter();
     initContactForm();
-    initVideoSlider();
-    initResidentsSlider();
     initParticles();
     initFloatingWindow();
     initAnimations();
     initScrollEffects();
     initImageSwap();
-    
-    window.addEventListener('resize', function() {
-        updateResidentsVisibleSlides();
-        if (typeof updateResidentsSliderPosition === 'function') {
-            updateResidentsSliderPosition();
-        }
-    });
+    initResidentCarousel();
+    initVideoCarousel();
 }
 
 // ===== 1. INTERCAMBIAR IMÁGENES =====
@@ -76,7 +52,6 @@ function initMobileMenu() {
         }
     });
     
-    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-links a').forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -119,17 +94,14 @@ function initServiceFilter() {
     
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remover active de todos los botones
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
             const filterValue = button.getAttribute('data-filter');
             
-            // Filtrar tarjetas
             serviceCards.forEach(card => {
                 if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                     card.style.display = 'flex';
-                    // Animación suave al aparecer
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
@@ -139,7 +111,6 @@ function initServiceFilter() {
                 }
             });
             
-            // Reordenar grid si es necesario
             if (servicesGrid) {
                 servicesGrid.style.display = 'grid';
             }
@@ -157,7 +128,6 @@ function initContactForm() {
     
     if (!form) return;
     
-    // Configuración inicial
     if (fechaField) fechaField.style.display = 'none';
     if (parentescoField) parentescoField.classList.remove('visible');
     
@@ -195,7 +165,6 @@ function initContactForm() {
         showNotification('¡Mensaje enviado correctamente!', 'success');
         form.reset();
         
-        // Resetear opciones
         tipoButtons[0].classList.add('active');
         tipoButtons[1].classList.remove('active');
         if (tipoSolicitudInput) tipoSolicitudInput.value = 'consulta';
@@ -204,193 +173,185 @@ function initContactForm() {
     });
 }
 
-// ===== 6. SLIDER DE VIDEOS =====
-function initVideoSlider() {
-    videoSliderTrack = document.querySelector('.video-slider-track');
-    const slides = document.querySelectorAll('.video-slide');
-    videoPrevBtn = document.querySelector('.video-prev');
-    videoNextBtn = document.querySelector('.video-next');
-    videoDots = document.querySelectorAll('.video-dots .slider-dot');
-    
-    if (!videoSliderTrack || !slides.length) return;
-    
-    videoCurrentSlide = 0;
-    videoSlideCount = slides.length;
-    
-    function updateVideoSliderPosition() {
-        videoSliderTrack.style.transform = `translateX(-${videoCurrentSlide * 100}%)`;
+// ===== 6. NUEVO CARRUSEL DE RESIDENTES =====
+function initResidentCarousel() {
+    const residents = [
+        {
+            src: "img/residente1.jpg",
+            title: "Doña María",
+            description: "Aquí encontré una nueva familia. Me encantan las tardes de manualidades."
+        },
+        {
+            src: "img/residente2.jpg",
+            title: "Don José",
+            description: "El jardín es mi lugar favorito. Todos los días juego dominó con mis amigos."
+        },
+        {
+            src: "img/residente3.jpg",
+            title: "Señora Elena",
+            description: "La atención es excelente, me siento cuidada y respetada siempre."
+        },
+        {
+            src: "img/residente4.jpg",
+            title: "Don Luis",
+            description: "Me encanta la música y aquí siempre tenemos actividades para compartir."
+        }
+    ];
+
+    let currentIndex = 0;
+    const photoImg = document.getElementById('residentPhoto');
+    const photoTitle = document.getElementById('residentTitle');
+    const photoDescription = document.getElementById('residentDescription');
+    const photoCounter = document.getElementById('residentCounter');
+    const prevBtn = document.getElementById('prevResidentBtn');
+    const nextBtn = document.getElementById('nextResidentBtn');
+
+    if (!photoImg) return;
+
+    function loadResident(index) {
+        if (index < 0 || index >= residents.length) return;
         
-        videoDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === videoCurrentSlide);
-        });
+        currentIndex = index;
+        const resident = residents[currentIndex];
         
-        if (videoPrevBtn) videoPrevBtn.disabled = videoCurrentSlide === 0;
-        if (videoNextBtn) videoNextBtn.disabled = videoCurrentSlide === videoSlideCount - 1;
+        photoImg.src = resident.src;
+        photoTitle.textContent = resident.title;
+        photoDescription.textContent = resident.description;
+        photoCounter.textContent = `${currentIndex + 1} / ${residents.length}`;
         
-        pauseOtherVideos();
+        updateButtons();
     }
-    
-    function pauseOtherVideos() {
-        slides.forEach((slide, index) => {
-            if (index !== videoCurrentSlide) {
-                const video = slide.querySelector('.slide-video');
-                if (video && !video.paused) {
-                    video.pause();
-                    const playBtn = slide.querySelector('.slide-video-play-btn');
-                    if (playBtn) {
-                        playBtn.style.opacity = '1';
-                        playBtn.style.visibility = 'visible';
-                    }
-                }
+
+    function updateButtons() {
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === residents.length - 1;
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                loadResident(currentIndex - 1);
             }
         });
     }
-    
-    if (videoNextBtn) {
-        videoNextBtn.addEventListener('click', () => {
-            if (videoCurrentSlide < videoSlideCount - 1) {
-                videoCurrentSlide++;
-                updateVideoSliderPosition();
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < residents.length - 1) {
+                loadResident(currentIndex + 1);
             }
         });
     }
-    
-    if (videoPrevBtn) {
-        videoPrevBtn.addEventListener('click', () => {
-            if (videoCurrentSlide > 0) {
-                videoCurrentSlide--;
-                updateVideoSliderPosition();
-            }
-        });
-    }
-    
-    videoDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const slideIndex = parseInt(dot.getAttribute('data-slide'));
-            if (slideIndex !== videoCurrentSlide) {
-                videoCurrentSlide = slideIndex;
-                updateVideoSliderPosition();
-            }
-        });
-    });
-    
-    // Configurar botones de play personalizados
-    const playButtons = document.querySelectorAll('.slide-video-play-btn');
-    const videos = document.querySelectorAll('.slide-video');
-    
-    playButtons.forEach((btn, index) => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const video = videos[index];
-            if (video) {
-                if (video.paused) {
-                    // Pausar otros videos
-                    videos.forEach(v => {
-                        if (v !== video && !v.paused) v.pause();
-                    });
-                    video.play();
-                    btn.style.opacity = '0';
-                    btn.style.visibility = 'hidden';
-                } else {
-                    video.pause();
-                }
-            }
-        });
-    });
-    
-    videos.forEach((video, index) => {
-        video.addEventListener('play', () => {
-            const playBtn = video.closest('.slide-video-wrapper')?.querySelector('.slide-video-play-btn');
-            if (playBtn) {
-                playBtn.style.opacity = '0';
-                playBtn.style.visibility = 'hidden';
-            }
-        });
-        
-        video.addEventListener('pause', () => {
-            const playBtn = video.closest('.slide-video-wrapper')?.querySelector('.slide-video-play-btn');
-            if (playBtn) {
-                playBtn.style.opacity = '1';
-                playBtn.style.visibility = 'visible';
-            }
-        });
-        
-        video.addEventListener('ended', () => {
-            const playBtn = video.closest('.slide-video-wrapper')?.querySelector('.slide-video-play-btn');
-            if (playBtn) {
-                playBtn.style.opacity = '1';
-                playBtn.style.visibility = 'visible';
-            }
-        });
-    });
-    
-    updateVideoSliderPosition();
+
+    loadResident(0);
 }
 
-// ===== 7. SLIDER DE RESIDENTES =====
-function initResidentsSlider() {
-    const residentsSection = document.getElementById('residentes');
-    if (!residentsSection) return;
-    
-    residentsSliderTrack = residentsSection.querySelector('.video-slider-track');
-    const slides = residentsSection.querySelectorAll('.video-slide');
-    residentsPrevBtn = residentsSection.querySelector('.video-prev');
-    residentsNextBtn = residentsSection.querySelector('.video-next');
-    residentsDots = residentsSection.querySelectorAll('.video-dots .slider-dot');
-    
-    if (!residentsSliderTrack || !slides.length) return;
-    
-    residentsCurrentSlide = 0;
-    residentsSlideCount = slides.length;
-    
-    function updateResidentsSliderPosition() {
-        if (!slides.length) return;
-        
-        residentsSliderTrack.style.transform = `translateX(-${residentsCurrentSlide * 100}%)`;
-        
-        residentsDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === residentsCurrentSlide);
-        });
-        
-        if (residentsPrevBtn) residentsPrevBtn.disabled = residentsCurrentSlide === 0;
-        if (residentsNextBtn) residentsNextBtn.disabled = residentsCurrentSlide === residentsSlideCount - 1;
-    }
-    
-    if (residentsNextBtn) {
-        residentsNextBtn.addEventListener('click', () => {
-            if (residentsCurrentSlide < residentsSlideCount - 1) {
-                residentsCurrentSlide++;
-                updateResidentsSliderPosition();
-            }
-        });
-    }
-    
-    if (residentsPrevBtn) {
-        residentsPrevBtn.addEventListener('click', () => {
-            if (residentsCurrentSlide > 0) {
-                residentsCurrentSlide--;
-                updateResidentsSliderPosition();
-            }
-        });
-    }
-    
-    residentsDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const slideIndex = parseInt(dot.getAttribute('data-slide'));
-            if (slideIndex >= 0 && slideIndex < residentsSlideCount) {
-                residentsCurrentSlide = slideIndex;
-                updateResidentsSliderPosition();
-            }
-        });
-    });
-    
-    // Guardar función para usarla en resize
-    window.updateResidentsSliderPosition = updateResidentsSliderPosition;
-    updateResidentsSliderPosition();
-}
+// ===== 7. NUEVO CARRUSEL DE VIDEOS =====
+function initVideoCarousel() {
+    const videos = [
+        {
+            src: "img/amoryamistad.mp4",
+            title: "Un Día Típico",
+            description: "Conoce cómo transcurre un día completo en VitaNova.",
+            orientation: "horizontal"
+        },
+        {
+            src: "img/como-llegar.mp4",
+            title: "Actividades Recreativas",
+            description: "Sesiones de terapia ocupacional y actividades grupales.",
+            orientation: "horizontal"
+        },
+        {
+            src: "videos/testimonios-familias.mp4",
+            title: "Testimonios de Familias",
+            description: "Las familias comparten sus experiencias.",
+            orientation: "horizontal"
+        },
+        {
+            src: "videos/instalaciones.mp4",
+            title: "Tour Virtual",
+            description: "Recorrido por nuestras instalaciones.",
+            orientation: "horizontal"
+        },
+        {
+            src: "img/felices.mp4",
+            title: "Momentos Felices",
+            description: "La alegría de nuestros residentes.",
+            orientation: "vertical"
+        }
+    ];
 
-function updateResidentsVisibleSlides() {
-    residentsVisibleSlides = 1;
+    let currentIndex = 0;
+    const mainVideo = document.getElementById('mainVideo');
+    const videoTitle = document.getElementById('videoTitle');
+    const videoDescription = document.getElementById('videoDescription');
+    const videoCounter = document.getElementById('videoCounter');
+    const orientationBadge = document.getElementById('orientationBadge');
+    const prevBtn = document.getElementById('prevVideoBtn');
+    const nextBtn = document.getElementById('nextVideoBtn');
+
+    if (!mainVideo) return;
+
+    function adjustOrientation(orientation) {
+        if (orientation === 'vertical') {
+            mainVideo.style.aspectRatio = '9/16';
+            if (orientationBadge) {
+                orientationBadge.textContent = '📱 Vertical';
+                orientationBadge.style.backgroundColor = 'rgba(255, 215, 0, 0.9)';
+                orientationBadge.style.color = '#1a2a3a';
+            }
+        } else {
+            mainVideo.style.aspectRatio = '16/9';
+            if (orientationBadge) {
+                orientationBadge.textContent = '🖥️ Horizontal';
+                orientationBadge.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                orientationBadge.style.color = '#1a2a3a';
+            }
+        }
+    }
+
+    function loadVideo(index) {
+        if (index < 0 || index >= videos.length) return;
+        
+        currentIndex = index;
+        const video = videos[currentIndex];
+        
+        mainVideo.pause();
+        mainVideo.src = video.src;
+        videoTitle.textContent = video.title;
+        videoDescription.textContent = video.description;
+        videoCounter.textContent = `${currentIndex + 1} / ${videos.length}`;
+        
+        adjustOrientation(video.orientation);
+        
+        mainVideo.load();
+        mainVideo.play().catch(e => console.log("Reproducción automática no permitida"));
+        
+        updateButtons();
+    }
+
+    function updateButtons() {
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === videos.length - 1;
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                loadVideo(currentIndex - 1);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < videos.length - 1) {
+                loadVideo(currentIndex + 1);
+            }
+        });
+    }
+
+    loadVideo(0);
 }
 
 // ===== 8. PARTÍCULAS =====
@@ -504,7 +465,6 @@ function initScrollEffects() {
             header.classList.remove('scrolled');
         }
         
-        // Activar enlaces del menú según sección visible
         const sections = document.querySelectorAll('section[id]');
         const scrollPosition = window.scrollY + 120;
         
