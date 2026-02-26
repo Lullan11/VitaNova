@@ -401,7 +401,7 @@ function initVideoCarousel() {
             orientation: "horizontal"
         },
         {
-            src: "img/diaMujer.mp4",
+            src: "img/diamujer.mp4",
             title: "El dia de la Mujer",
             description: "Queremos ver nuestras Mujeres felices.",
             orientation: "horizontal"
